@@ -1,6 +1,10 @@
 
 body {
+<<<<<<< HEAD
   box-sizing: border-box;
+=======
+  
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
   margin: 0 !important;
   padding: 0 !important;
   background: #151616;
@@ -50,6 +54,7 @@ a:hover {
 
 .page-container{
   margin-top: 60px;
+<<<<<<< HEAD
 }
 
 
@@ -167,3 +172,6 @@ button {
   padding: 8px 0;
   background: #3a2b58;
 }
+=======
+}
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b

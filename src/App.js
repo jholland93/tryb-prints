@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import {
@@ -6,6 +7,11 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+=======
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 import { Nav } from "./components/Navbar";
 import Home from "./components/pages/Home";
 import Footer from "./components/Footer";
@@ -20,6 +26,7 @@ import { Provider as StyletronProvider, DebugEngine } from "styletron-react";
 import { Client as Styletron } from "styletron-engine-atomic";
 
 //SignUp
+<<<<<<< HEAD
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 
@@ -28,6 +35,11 @@ import { Container } from "react-bootstrap";
 
 import fire from "./config/fire";
 import HeroSection from "./components/HeroSection";
+=======
+import SignUp from './components/SignUp'
+import { Navbar } from "react-bootstrap";
+
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 //Debug const (for shop)
 const debug =
   process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
@@ -35,15 +47,23 @@ const debug =
 //Engine
 const engine = new Styletron();
 
+<<<<<<< HEAD
 //////////////////////////////////////////////////////////////
 const App =() =>{
 
   ///////////////////////////////////////////////////////////////
 
+=======
+
+
+
+function App() {
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
   return (
     <ShopProvider>
       <StyletronProvider value={engine} debug={debug} debugAfterHydration>
         <div className="page-container">
+<<<<<<< HEAD
           {/* Router */}
           <Router>
             <Nav className="nav_desktop" />
@@ -57,6 +77,22 @@ const App =() =>{
           <div className="app">
            
           </div>
+=======
+          {/* Navbar */}
+          <Router>
+
+            <Nav className="nav_desktop" />
+            <Nav />
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/cart" exact component={Cart} />
+              <Route path="/product" exact component={Products} />
+              <Route path="/product/:id" exact component={ProductPage} />
+              <Route path="/signup" exact component={SignUp} />
+            </Switch>
+          </Router>
+          <div className="content-wrap"></div>
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 
           {/* Footer */}
           <Footer />
@@ -64,6 +100,10 @@ const App =() =>{
       </StyletronProvider>
     </ShopProvider>
   );
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 
 export default App;
