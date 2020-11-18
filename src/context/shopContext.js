@@ -36,7 +36,11 @@ class ShopProvider extends Component {
         }]
 
         const checkout = await client.checkout.addLineItems(this.state.checkout.id, lineItemToAdd)
+<<<<<<< HEAD
+        this.setState({ checkout: checkout })
+=======
         this.setState({ checkout: checkout, isCartOpen: true })
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
     }
 
     fetchAllProducts = async () => {

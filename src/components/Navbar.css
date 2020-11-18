@@ -12,10 +12,16 @@
   top:0;
   z-index:1;
   width:100%;
+<<<<<<< HEAD
+  
+}
+
+=======
 
 }
 
 
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 ._navbar-logo{
     margin-top:10px;
     margin-right:auto;
@@ -24,20 +30,34 @@
     width:100px;
 }
 
+<<<<<<< HEAD
+=======
 .menu{
   overflow: hidden;
 }
 
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 
 .menu-items{ 
   float: none;
   margin:auto;
   position: relative;
   right:0px;
+<<<<<<< HEAD
+  left:20px;
+}
+
+.second-menu{
+ margin-right:2rem;
+ display:flex;
+}
+
+=======
   left:10px;
   
   
 }
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 /* Hamburger Menu */
 .menu-btn {
   position: absolute;
@@ -98,6 +118,10 @@
 
 .menu-items a{
   margin:1rem;
+<<<<<<< HEAD
+  padding:1rem;
+=======
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 }
 
 .menu-items a:hover{
@@ -124,13 +148,22 @@
 
 /* Icon Button */
 .icon-button {
+<<<<<<< HEAD
+  --button-size: calc(var(--nav-size) * 0.7);
+=======
   --button-size: calc(var(--nav-size) * 0.5);
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
   width: var(--button-size);
   height: var(--button-size);
   background-color: #484a4d;
   border-radius: 50%;
+<<<<<<< HEAD
+  padding: 0px;
+  margin: 0px;
+=======
   padding: 5px;
   margin: 2px;
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,7 +187,11 @@
 
 .dropdown {
   position: absolute;
+<<<<<<< HEAD
+  top: 60px;
+=======
   top: 56px;
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
   width: 300px;
   transform: translateX(-45%);
   background-color: var(--bg);
@@ -162,12 +199,20 @@
   border-radius: var(--border-radius);
   overflow: hidden;
   transition: height var(--speed) ease;
+<<<<<<< HEAD
+  padding:5px 5px;
+=======
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
   
 }
 
 .menu {
   width: 100%;
   padding:10px;
+<<<<<<< HEAD
+  
+=======
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 }
 
 .menu-item, .dropdown-item {
@@ -176,12 +221,21 @@
   display: flex;
   align-items: center;
   border-radius: var(--border-radius);
+<<<<<<< HEAD
+  padding: 0.5rem;
+  
+}
+
+.menu-item .icon-button {
+  margin-right: 1rem;
+=======
   transition: background var(--speed);
   padding: 0.5rem;
 }
 
 .menu-item .icon-button {
   margin-right: 0.5rem;
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 }
 
 
@@ -192,7 +246,12 @@
 .menu-item:hover, .dropdown-item:hover {
   background-color: #525357;
   text-decoration: none;
+<<<<<<< HEAD
+  color:white;
+  padding:(-1rem);
+=======
   color:white
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 }
 
 .icon-right {
@@ -218,7 +277,11 @@
 
 
 .menu-secondary-enter {
+<<<<<<< HEAD
+  transform: translateX(120%);
+=======
   transform: translateX(110%);
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
 }
 .menu-secondary-enter-active {
   transform: translateX(0%);

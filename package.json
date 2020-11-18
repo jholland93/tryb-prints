@@ -8,13 +8,26 @@
     "@testing-library/user-event": "^7.2.1",
     "atomize": "^1.0.26",
     "bootstrap": "^4.5.3",
+<<<<<<< HEAD
+    "firebase": "^8.0.2",
+=======
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
     "materialize-css": "^1.0.0-rc.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
+<<<<<<< HEAD
+    "react-router-bootstrap": "^0.25.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.4",
     "react-transition-group": "^4.4.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.1",
+=======
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.4",
+    "react-transition-group": "^4.4.1",
+>>>>>>> 007da92f9695d416940b6e6e5dc987f8e36bfa8b
     "shopify-buy": "^2.11.0",
     "styletron-engine-atomic": "^1.4.6",
     "styletron-react": "^5.2.7"
