@@ -135,6 +135,7 @@
   align-items: center;
   justify-content: center;
   transition: filter 300ms;
+  cursor: pointer;
 }
 
 .icon-button:hover {
@@ -179,6 +180,8 @@
   align-items: center;
   border-radius: var(--border-radius);
   padding: 0.5rem;
+  
+  cursor: pointer;
   
 }
 

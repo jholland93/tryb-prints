@@ -28,6 +28,7 @@ import { Container } from "react-bootstrap";
 
 import fire from "./config/fire";
 import HeroSection from "./components/HeroSection";
+
 //Debug const (for shop)
 const debug =
   process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
@@ -35,15 +36,13 @@ const debug =
 //Engine
 const engine = new Styletron();
 
-//////////////////////////////////////////////////////////////
-const App =() =>{
 
-  ///////////////////////////////////////////////////////////////
+function App (){
 
   return (
     <ShopProvider>
       <StyletronProvider value={engine} debug={debug} debugAfterHydration>
-        <div className="page-container">
+        <div className="page-container" >
           {/* Router */}
           <Router>
             <Nav className="nav_desktop" />

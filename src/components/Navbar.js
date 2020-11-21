@@ -29,6 +29,7 @@ import "../context/AuthContext";
 import fire from "../config/fire";
 import Login from "./Login";
 
+
 function Nav() {
   return (
     <Navbar>
@@ -74,9 +75,9 @@ function NavItem(props) {
 
   return (
     <li className="_nav-item">
-      <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
+      <div className="icon-button" onClick={() => setOpen(!open)}>
         {props.icon}
-      </a>
+      </div>
 
       {open && props.children}
     </li>
@@ -100,15 +101,15 @@ function DropdownMenu() {
 
   function DropdownItem(props) {
     return (
-      <a
-        href="#"
+      <div
+       
         className="menu-item"
         onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
       >
         <span className="icon-button">{props.leftIcon}</span>
         {props.children}
         <span className="icon-right">{props.rightIcon}</span>
-      </a>
+      </div>
     );
   }
 
@@ -172,8 +173,11 @@ function DropdownMenu() {
     authListener();
   }, []);
 
+
+
   return (
-    <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
+    
+    <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef} >
       <CSSTransition
         in={activeMenu === "main"}
         timeout={500}
@@ -187,7 +191,7 @@ function DropdownMenu() {
             rightIcon={<RightArrowIcon class="icon" />}
             goToMenu="my-account"
           >
-            <a href="#"> My Account</a>
+            <a > My Account</a>
           </DropdownItem>
           <DropdownItem leftIcon={<OrdersIcon class="icon" />}>
             My Orders
@@ -229,7 +233,6 @@ function DropdownMenu() {
       </CSSTransition>
 
       {/* My Account Menu */}
-
       <CSSTransition
         in={activeMenu === "my-account"}
         timeout={500}
@@ -256,7 +259,7 @@ function DropdownMenu() {
                 <Link to="/account">
                   <DropdownItem leftIcon="">Account</DropdownItem>
                 </Link>
-                <Link to="/" onClick={handleLogout}>
+                <Link to="/" onClick={handleLogout} >
                   <DropdownItem>Logout</DropdownItem>
                 </Link>
               </span>
@@ -264,7 +267,7 @@ function DropdownMenu() {
           ) : (
             <>
               <span>
-                <Link to="/login">
+                <Link to="/login" onClick={() => setOpen(!open)}>
                   <DropdownItem>Login</DropdownItem>
                 </Link>
               </span>
