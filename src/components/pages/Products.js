@@ -5,19 +5,21 @@ import { Link } from 'react-router-dom'
 
 
 
+
 const Products = () => {
+
+    
 
     const { fetchAllProducts, products } = useContext(ShopContext)
 
 
     useEffect(() => {
         fetchAllProducts()
-        return () => {
-
-        };
+        window.scrollTo(0, 0)//scroll to top on page load
     }, [fetchAllProducts])
 
     if (!products) return <div>Loading</div>
+    
 
     return (
         <Container>
@@ -46,6 +48,8 @@ const Products = () => {
             </Row>
         </Container>
     )
+    
 }
+
 
 export default Products

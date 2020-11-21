@@ -15,10 +15,6 @@ const Login = () => {
   const [hasAccount, setHasAccount] = useState("");
   const history = useHistory();
 
-  
-    
-    
-  
 
   const clearInputs = () => {
     setEmail("");
