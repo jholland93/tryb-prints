@@ -1,5 +1,7 @@
+/* eslint-disable array-callback-return */
 import React, { Component } from 'react'
 import Client from 'shopify-buy'
+import { toast } from 'react-toastify';
 
 const ShopContext = React.createContext()
 
@@ -35,8 +37,21 @@ class ShopProvider extends Component {
             quantity: parseInt(quantity, 10)
         }]
 
+        // Notification after adding item to cart
+        toast.success(
+            "Added product to the Cart.",
+            {
+                position: "bottom-left",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            }
+        )
         const checkout = await client.checkout.addLineItems(this.state.checkout.id, lineItemToAdd)
-        this.setState({ checkout: checkout })
+        this.setState({ checkout: checkout, isCartOpen: true })
     }
 
     fetchAllProducts = async () => {
@@ -53,7 +68,48 @@ class ShopProvider extends Component {
 
     openCart = () => { this.setState({ isCartOpen: true }) }
 
+    /**
+     * Clear cart function to clear cart item
+     */
+    clearCart = async () => {
+        const lineItemIdsToRemove = [];
+        this.state.checkout.lineItems && this.state.checkout.lineItems.map(item => {
+            lineItemIdsToRemove.push(item.id);
+        });
+        await client.checkout.removeLineItems(this.state.checkout.id, lineItemIdsToRemove).then((checkout) => {
+            this.setState({ checkout: checkout, isCartOpen: false })
+        });
+        toast.success(
+            "Cart succussfully cleared.",
+            {
+                position: "bottom-left",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            }
+        )
+    }
 
+    removeCartItem = async (id) => {
+        await client.checkout.removeLineItems(this.state.checkout.id, [id]).then((checkout) => {
+            this.setState({ checkout: checkout })
+        });
+        toast.success(
+            "Item removed successfully.",
+            {
+                position: "bottom-left",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            }
+        )
+    }
 
     render() {
         return (
@@ -63,7 +119,9 @@ class ShopProvider extends Component {
                 fetchProductWithId: this.fetchProductWithId,
                 closeCart: this.closeCart,
                 openCart: this.openCart,
-                addItemToCheckout: this.addItemToCheckout
+                clearCart: this.clearCart,
+                addItemToCheckout: this.addItemToCheckout,
+                removeCartItem: this.removeCartItem
             }} >
                 {this.props.children}
             </ ShopContext.Provider>

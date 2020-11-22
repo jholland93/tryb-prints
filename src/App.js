@@ -14,6 +14,8 @@ import ProductPage from "./components/pages/ProductPage";
 import Products from "./components/pages/Products";
 import ShopProvider from "./context/shopContext";
 import Cart from "./components/Cart";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //Shop
 import { Provider as StyletronProvider, DebugEngine } from "styletron-react";
@@ -37,7 +39,7 @@ const debug =
 const engine = new Styletron();
 
 
-function App (){
+function App() {
 
   return (
     <ShopProvider>
@@ -45,6 +47,8 @@ function App (){
         <div className="page-container" >
           {/* Router */}
           <Router>
+            <ToastContainer />
+
             <Nav className="nav_desktop" />
             <Route path="/" exact component={Home} />
             <Route path="/cart" exact component={Cart} />
@@ -54,7 +58,7 @@ function App (){
           </Router>
 
           <div className="app">
-           
+
           </div>
 
           {/* Footer */}

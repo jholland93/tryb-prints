@@ -4,7 +4,7 @@ import { Div, SideDrawer, Text, Row, Col, Anchor } from 'atomize'
 
 const Cart = () => {
 
-    const { isCartOpen, closeCart, checkout } = useContext(ShopContext)
+    const { isCartOpen, closeCart, checkout, clearCart, removeCartItem } = useContext(ShopContext)
 
     return (
         <SideDrawer isOpen={isCartOpen} onClose={closeCart}>
@@ -22,8 +22,11 @@ const Cart = () => {
                         <Col>
                             <Text>{item.variant.price}</Text>
                         </Col>
+                        <a onClick={() => removeCartItem(item.id)}>Remove</a>
                     </Row>
                 ))}
+                <Anchor onClick={clearCart}>Clear Cart</Anchor>
+
                 <Anchor href={checkout.webUrl} target="_blank" >Checkout</Anchor>
             </Div>
 

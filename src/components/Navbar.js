@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 
 import "./Navbar.css";
 import "../App.css";
@@ -25,14 +25,26 @@ import { Link, Route, Router } from "react-router-dom";
 import { Button, Div, Icon, SideDrawer, Text } from "atomize";
 import { Dropdown } from "react-bootstrap";
 
+//Cart
+import { Container, Anchor } from 'atomize'
+import { ShopContext } from '../context/shopContext'
+
 import "../context/AuthContext";
 import fire from "../config/fire";
 import Login from "./Login";
 
+import Cart from './../components/Cart';
+
+
 
 function Nav() {
+
+  //Use fucntion sopen cart from shopConext
+  const { openCart, checkout } = useContext(ShopContext)
+
   return (
     <Navbar>
+      <Cart />
       {/* LOGO */}
       <Link to="/">
         <img className="_navbar-logo" src={logo} />
@@ -51,14 +63,22 @@ function Nav() {
       </div>
 
       {/* Menu Icons */}
-      <div class="second-menu">
-        <NavItem icon={<HeartIcon class="icon" />} />
-        <NavItem icon={<CartIcon class="icon" />} />
-        <NavItem icon={<AccountIcon class="icon" />}>
-          <DropdownMenu></DropdownMenu>
-        </NavItem>
-      </div>
-    </Navbar>
+
+      <NavItem class="hide-icons" icon={<HeartIcon class="icon" />} />
+
+      {/* Changes for shopping cart count */}
+
+      <li className="_nav-item">
+        <a href="#" className="icon-button">
+          <CartIcon class="icon" onClick={() => openCart()} />
+        </a>
+        <span className="badge badge-light">{checkout.lineItems?.length || 0}</span>
+      </li>
+      <NavItem icon={<AccountIcon class="icon" />}>
+
+        <DropdownMenu></DropdownMenu>
+      </NavItem>
+    </Navbar >
   );
 }
 
@@ -102,7 +122,7 @@ function DropdownMenu() {
   function DropdownItem(props) {
     return (
       <div
-       
+
         className="menu-item"
         onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
       >
@@ -176,7 +196,7 @@ function DropdownMenu() {
 
 
   return (
-    
+
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef} >
       <CSSTransition
         in={activeMenu === "main"}
@@ -265,14 +285,14 @@ function DropdownMenu() {
               </span>
             </>
           ) : (
-            <>
-              <span>
-                <Link to="/login" onClick={() => setOpen(!open)}>
-                  <DropdownItem>Login</DropdownItem>
-                </Link>
-              </span>
-            </>
-          )}
+              <>
+                <span>
+                  <Link to="/login" onClick={() => setOpen(!open)}>
+                    <DropdownItem>Login</DropdownItem>
+                  </Link>
+                </span>
+              </>
+            )}
         </div>
       </CSSTransition>
     </div>
