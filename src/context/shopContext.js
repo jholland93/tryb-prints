@@ -20,13 +20,31 @@ class ShopProvider extends Component {
   };
 
   componentDidMount() {
-    this.createCheckout();
+    //this.createCheckout();
+
+    //Check If local storage has a checkout_id saved
+    if (localStorage.checkout) {
+      this.fetchCheckout(localStorage.checkout)
+    } else {
+      this.createCheckout();
+    }
+    //If there is not checkout_id in local storage then we will create a new checkout
+
+    // else fetch the checkout from shopify 
+
   }
 
   createCheckout = async () => {
     const checkout = await client.checkout.create();
+    localStorage.setItem("checkout", checkout.id)
     this.setState({ checkout: checkout });
   };
+
+  fetchCheckout = async (checkoutId) => {
+    client.checkout.fetch(checkoutId).then(checkout => {
+      this.setState({ checkout: checkout });
+    }).catch(err => console.log(err))
+  }
 
   addItemToCheckout = async (variantId, quantity) => {
     const lineItemToAdd = [
@@ -71,9 +89,9 @@ class ShopProvider extends Component {
     this.setState({ isCartOpen: true });
   };
 
-  
-//    Clear cart function to clear cart item
-   
+
+  //    Clear cart function to clear cart item
+
   clearCart = async () => {
     const lineItemIdsToRemove = [];
     this.state.checkout.lineItems &&
