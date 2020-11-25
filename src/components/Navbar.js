@@ -5,13 +5,8 @@ import "../App.css";
 import { CSSTransition } from "react-transition-group";
 
 import { ReactComponent as HeartIcon } from "../icons/heart.svg";
-import { ReactComponent as MessengerIcon } from "../icons/messenger.svg";
 import { ReactComponent as CartIcon } from "../icons/cart.svg";
 import { ReactComponent as AccountIcon } from "../icons/account.svg";
-import { ReactComponent as CogIcon } from "../icons/cog.svg";
-import { ReactComponent as ChevronIcon } from "../icons/chevron.svg";
-import { ReactComponent as ArrowIcon } from "../icons/arrow.svg";
-import { ReactComponent as BoltIcon } from "../icons/bolt.svg";
 import { ReactComponent as RightArrowIcon } from "../icons/rightArrow.svg";
 import { ReactComponent as LeftArrowIcon } from "../icons/leftArrow.svg";
 import { ReactComponent as OrdersIcon } from "../icons/orders.svg";
@@ -46,7 +41,7 @@ function Nav() {
     <Navbar>
       <Cart />
       {/* LOGO */}
-      <Link to="/">
+      <Link to="/" exaxt>
         <img className="_navbar-logo" src={logo} />
       </Link>
 
@@ -68,11 +63,12 @@ function Nav() {
 
       {/* Changes for shopping cart count */}
 
-      <li className="_nav-item">
+      <li className="_nav-item" onClick={() => openCart()}>
         <a href="#" className="icon-button">
-          <CartIcon class="icon" onClick={() => openCart()} />
+          <CartIcon class="icon" id="cart"  />
+          <span className="cart-counter">{checkout.lineItems?.length || 0}</span>
         </a>
-        <span className="badge badge-light">{checkout.lineItems?.length || 0}</span>
+       
       </li>
       <NavItem icon={<AccountIcon class="icon" />}>
 
@@ -104,6 +100,8 @@ function NavItem(props) {
   );
 }
 
+
+//dropdown menu for navbar 
 function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
@@ -140,41 +138,9 @@ function DropdownMenu() {
   const [passwordError, setPasswordError] = useState("");
   const [hasAccount, setHasAccount] = useState("");
 
-  const handleLogin = () => {
-    fire
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/invalid-email":
-          case "auth/user-disabled":
-          case "auth/user-not-found":
-            setEmailError(err.message);
-            break;
-          case "auth/wrong-password":
-            setPasswordError(err.message);
-            break;
-        }
-      });
-  };
+ 
 
-  const handleSignUp = () => {
-    fire
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .catch((err) => {
-        switch (err.code) {
-          case "auth/email-already-in-use":
-          case "auth/invalid-email":
-            setEmailError(err.message);
-            break;
-          case "auth/weak-password":
-            setPasswordError(err.message);
-            break;
-        }
-      });
-  };
-
+  //Logout
   const handleLogout = () => {
     fire.auth().signOut();
   };
@@ -297,6 +263,8 @@ function DropdownMenu() {
       </CSSTransition>
     </div>
   );
+
+  
 }
 
 export { Nav };

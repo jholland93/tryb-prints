@@ -12,14 +12,17 @@
   top:0;
   z-index:1;
   width:100%;
+  display:block;
   
 }
+
+
 
 ._navbar-logo{
     margin-top:10px;
     margin-right:auto;
     margin-left: auto;
-    position: relative;
+    position: fixed;
     width:100px;
 }
 
@@ -33,8 +36,26 @@
 }
 
 .second-menu{
- margin-right:2rem;
+ margin-right:1rem;
  display:flex;
+}
+
+
+/* Cart */
+#cart{
+  position:fixed;
+}
+.cart-counter{
+  font-size: 12px;
+  position:relative;
+   top: -15px;
+   right: -15px;
+   background-color: blue;
+   border-radius: 50%;
+   height:40%;
+   width:40%;
+   text-align: center;
+   
 }
 
 /* Hamburger Menu */
@@ -95,6 +116,8 @@
   filter: invert(100%);
 }
 
+
+/*center menu */
 .menu-items a{
   margin:1rem;
   padding:1rem;
@@ -110,19 +133,21 @@
   max-width: 100%;
   height: 100%;
   display: flex;
+  margin-right:1rem;
   justify-content: flex-end;
 }
 
-/* <li> */
+/* Navbar circle items*/
 ._nav-item {
   width: calc(var(--nav-size) * 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin:5px;
   
 }
 
-/* Icon Button */
+/* circle item container */
 .icon-button {
   --button-size: calc(var(--nav-size) * 0.7);
   width: var(--button-size);
@@ -139,7 +164,7 @@
 }
 
 .icon-button:hover {
-  filter: brightness(1.2);
+  filter: brightness(1.4);
 }
 
 .icon-button svg { 
@@ -169,7 +194,6 @@
 
 .menu {
   width: 100%;
-  padding:10px;
   
 }
 
@@ -245,19 +269,29 @@
   .menu-items, .hide-icons{
     display:none;
   }
-
-
-
-  ._navbar-logo{
-    position:absolute;
-    right:60%;
-    left:45%;
-  }
-
+._navbar-logo{
+  width:100px;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important;  /* 50% of your logo width */
+  display: block;
 }
+}
+
+@media screen and (max-width: 575px) {
+  ._navbar-logo{
+    display:flex;
+  }
+}
+
+@media screen and (max-width: 350px) {
+ 
+}
+
 
 @media screen and (min-width: 1000px) {
   .menu-btn{
     display:none;
   }
 }
+
