@@ -29,6 +29,10 @@ import fire from "../config/fire";
 import Login from "./Login";
 
 import Cart from './../components/Cart';
+import { createGlobalStyle } from "styled-components";
+
+import { Label,Switch } from "atomize";
+
 
 
 
@@ -38,16 +42,17 @@ function Nav() {
   const { openCart, checkout } = useContext(ShopContext)
 
   return (
+    
     <Navbar>
       <Cart />
       {/* LOGO */}
-      <Link to="/" exaxt>
+      <Link to="/">
         <img className="_navbar-logo" src={logo} />
       </Link>
 
       {/* Hamburger Menu */}
-      <div onClick="" class="menu-btn">
-        <div class="menu-btn__burger"></div>
+      <div onClick="" className="menu-btn">
+        <div className="menu-btn__burger"></div>
       </div>
 
       <div className="menu-items">
@@ -56,7 +61,6 @@ function Nav() {
         <Link to="/bestsellers">Bestsellers</Link>
         <Link to="/inspiration">Inspiration</Link>
       </div>
-
       {/* Menu Icons */}
 
       <NavItem class="hide-icons" icon={<HeartIcon class="icon" />} />
@@ -159,10 +163,8 @@ function DropdownMenu() {
     authListener();
   }, []);
 
-
-
   return (
-
+<>
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef} >
       <CSSTransition
         in={activeMenu === "main"}
@@ -185,6 +187,7 @@ function DropdownMenu() {
           <DropdownItem
             leftIcon={<SettingIcon class="icon" />}
             goToMenu="settings"
+            className="dropdown"
           >
             Settings
           </DropdownItem>
@@ -206,9 +209,7 @@ function DropdownMenu() {
           >
             <h2>Settings</h2>
           </DropdownItem>
-          <DropdownItem leftIcon={<DarkModeIcon class="icon" />}>
-            Dark Mode
-          </DropdownItem>
+          
           <DropdownItem leftIcon={<LocationIcon class="icon" />}>
             Location
           </DropdownItem>
@@ -261,7 +262,7 @@ function DropdownMenu() {
             )}
         </div>
       </CSSTransition>
-    </div>
+    </div></>
   );
 
   

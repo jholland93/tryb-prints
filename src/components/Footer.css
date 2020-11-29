@@ -7,10 +7,6 @@
     background-color: var(--bg);
     padding: 3em 0 1rem;
     border-top: var(--border);
-    position:relative;
-    left:0;
-    bottom:0;
-    right:0;
 }
 
 .copyright{
@@ -19,3 +15,4 @@
 
 }
 
+  

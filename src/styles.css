@@ -1,0 +1,19 @@
+.light-mode{
+    background-color:#fff;
+    color: rgb(235, 23, 23)
+}
+
+.light-mode nav,.light-mode nav .dropdown {
+    background-color: white;
+    color:red;
+}
+
+.dark-mode{
+    background-color: #242526;;
+    color: #999;
+    border: 1px solid #474a4d
+}
+
+.dark-mode nav, .dark-mode nav .dropdown{
+    background-color: #242526;
+}

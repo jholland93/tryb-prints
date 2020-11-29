@@ -27,6 +27,7 @@ import { Text, Div, Row, Col, Container, Image } from "atomize";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { Link } from "react-router-dom";
+import AppPromo from "../AppPromo";
 
 function Home() {
   const { fetchAllProducts, products } = useContext(ShopContext);
@@ -60,10 +61,10 @@ function Home() {
         infinite
         mouseTracking
         touchTracking
-        swipeExtraPadding="900"
+        swipeExtraPadding="1900"
         items={products.map((product) => (
           
-            <Row  m={{ l: "3rem" }}>
+            <Row m= "4rem">
               <Col>
                 <Link to={`/product/${product.id}`}>
                   <Div
@@ -73,8 +74,11 @@ function Home() {
                     bgImg={product.images[0].src}
                     bgSize="cover"
                     bgPos="centre centre"
-                    rounded="md"
-                    align="center"
+                    shadow="4"
+                    hoverShadow="5"
+                    transition="0.3s"
+                    m={{ b: "1.5rem" }}
+                    rounded="xs"
                    
                   />
                 </Link>
@@ -84,6 +88,7 @@ function Home() {
         ))}
         responsive={responsive}
       />
+      <AppPromo/>
 
       {/* <Carousel>
 

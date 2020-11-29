@@ -35,7 +35,7 @@ const ProductPage = () => {
           € {product.variants[0].price}
           </Text>
           <Button
-            rounded="lg"
+            rounded="0"
             shadow="3"
             bg="black500"
             m={{ y: "2rem" }}

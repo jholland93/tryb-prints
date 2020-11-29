@@ -16,8 +16,6 @@
   
 }
 
-
-
 ._navbar-logo{
     margin-top:10px;
     margin-right:auto;
@@ -26,14 +24,16 @@
     width:100px;
 }
 
-
 .menu-items{ 
-  float: none;
   margin:auto;
-  position: relative;
-  right:0px;
-  left:20px;
+  display: flex;
+  flex-direction: row;
+  padding-left:150px;
+  position:relative;
+  bottom:0.75rem;
 }
+
+
 
 .second-menu{
  margin-right:1rem;
@@ -51,6 +51,7 @@
    top: -15px;
    right: -15px;
    background-color: blue;
+   color:white;
    border-radius: 50%;
    height:40%;
    width:40%;
@@ -123,10 +124,7 @@
   padding:1rem;
 }
 
-.menu-items a:hover{
-  text-decoration:none;
-  color:rgba(255, 255, 255, 0.672)
-}
+
 
 /* <ul> */
 ._navbar-buttons {
@@ -170,7 +168,7 @@
 .icon-button svg { 
   width: 20px;
   height: 20px;
-  color: aliceblue;
+  
 }
 
 
@@ -199,7 +197,6 @@
 
 .menu-item, .dropdown-item {
   height: 50px;
-  color:white;
   display: flex;
   align-items: center;
   border-radius: var(--border-radius);
@@ -280,7 +277,10 @@
 
 @media screen and (max-width: 575px) {
   ._navbar-logo{
-    display:flex;
+    position:relative;
+    top:0;
+    left:0;
+    padding-right: 2rem;
   }
 }
 

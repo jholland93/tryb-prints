@@ -23,7 +23,7 @@ const Products = () => {
 
     return (
         <Container>
-            <Row>
+            <Row m={{ t:"4rem"}}>
                 {products.map(product => (
                     <Col key={product.id} size="3">
                         <Link to={`/product/${product.id}`}>
@@ -37,7 +37,7 @@ const Products = () => {
                                     hoverShadow="4"
                                     transition="0.3s"
                                     m={{ b: "1.5rem" }}
-                                    rounded="xl"
+                                    rounded="xs"
                                 />
                                 <Text tag="h1" textWeight="300" textSize="subheader" textDecor="none" textColor="white">{product.title}</Text>
                                 <Text tag="h2" textWeight="300" textSize="body" textDecor="none" textColor="white">€ {product.variants[0].price}</Text>
